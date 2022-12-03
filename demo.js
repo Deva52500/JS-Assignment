@@ -8,19 +8,19 @@ function computerPlay() {
 
 // User provides the input 
 function playerOptions() {
-    let option = prompt("Please enter your choice", "rock");
+    let option = prompt("Welcome to Rock Paper Scissors Game: Please enter your choice", "rock");
     let result = option.toLowerCase();
-    if (result != null) {
+    result= result.trim()
+    if (result== "rock" || result=="paper" || result=="scissors"){
         console.log ('Player Option', result)
         return result
     }else{
-        console.log ('Enter a valid Player Option')
+        console.log("Invalid Input")
+        return playerOptions()
     }
 }
 
-
 function playRound(playerSelection, computerSelection){
-
     if(playerSelection === computerSelection){
        console.log ('Tie');
        return "Tie"
@@ -64,7 +64,7 @@ function game(){
         const playerSelection= playerOptions() 
         const computerSelection= computerPlay() 
         const play = playRound(playerSelection, computerSelection)
-        console.log("Play round", play)
+        
         
         if (play==="Computer Won"){
             computerScore = computerScore + 1;
@@ -85,3 +85,4 @@ function game(){
 
 const finalResult= game()   
    console.log("Final Result of this game",finalResult) 
+
